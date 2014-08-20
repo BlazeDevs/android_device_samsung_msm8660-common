@@ -1,4 +1,4 @@
-/* Copyright (c) 2009-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009-2014, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -67,6 +67,8 @@ typedef unsigned char boolean;
 #define SUCCESS              TRUE
 #define FAILURE                 FALSE
 #define INVALID_ATL_CONNECTION_HANDLE -1
+
+#define MAX_XTRA_SERVER_URL_LENGTH 256
 
 enum loc_nmea_provider_e_type {
     NMEA_PROVIDER_AP = 0, // Application Processor Provider of NMEA
@@ -159,35 +161,18 @@ typedef struct
 /* GPS.conf support */
 typedef struct loc_gps_cfg_s
 {
-  unsigned long  INTERMEDIATE_POS;
-  unsigned long  ACCURACY_THRES;
-  unsigned long  ENABLE_WIPER;
-  uint8_t        NMEA_PROVIDER;
-  unsigned long  SUPL_VER;
-  unsigned long  CAPABILITIES;
-  uint8_t        GYRO_BIAS_RANDOM_WALK_VALID;
-  double         GYRO_BIAS_RANDOM_WALK;
-  unsigned long  SENSOR_ACCEL_BATCHES_PER_SEC;
-  unsigned long  SENSOR_ACCEL_SAMPLES_PER_BATCH;
-  unsigned long  SENSOR_GYRO_BATCHES_PER_SEC;
-  unsigned long  SENSOR_GYRO_SAMPLES_PER_BATCH;
-  unsigned long  SENSOR_ACCEL_BATCHES_PER_SEC_HIGH;
-  unsigned long  SENSOR_ACCEL_SAMPLES_PER_BATCH_HIGH;
-  unsigned long  SENSOR_GYRO_BATCHES_PER_SEC_HIGH;
-  unsigned long  SENSOR_GYRO_SAMPLES_PER_BATCH_HIGH;
-  unsigned long  SENSOR_CONTROL_MODE;
-  unsigned long  SENSOR_USAGE;
-  unsigned long  QUIPC_ENABLED;
-  unsigned long  LPP_PROFILE;
-  unsigned long  SENSOR_ALGORITHM_CONFIG_MASK;
-  uint8_t        ACCEL_RANDOM_WALK_SPECTRAL_DENSITY_VALID;
-  double         ACCEL_RANDOM_WALK_SPECTRAL_DENSITY;
-  uint8_t        ANGLE_RANDOM_WALK_SPECTRAL_DENSITY_VALID;
-  double         ANGLE_RANDOM_WALK_SPECTRAL_DENSITY;
-  uint8_t        RATE_RANDOM_WALK_SPECTRAL_DENSITY_VALID;
-  double         RATE_RANDOM_WALK_SPECTRAL_DENSITY;
-  uint8_t        VELOCITY_RANDOM_WALK_SPECTRAL_DENSITY_VALID;
-  double         VELOCITY_RANDOM_WALK_SPECTRAL_DENSITY;
+
+    unsigned long  INTERMEDIATE_POS;
+    unsigned long  ACCURACY_THRES;
+    unsigned long  SUPL_VER;
+    unsigned long  CAPABILITIES;
+    unsigned long  QUIPC_ENABLED;
+    unsigned long  LPP_PROFILE;
+    uint8_t        NMEA_PROVIDER;
+    unsigned long  A_GLONASS_POS_PROTOCOL_SELECT;
+    char           XTRA_SERVER_1[MAX_XTRA_SERVER_URL_LENGTH];
+    char           XTRA_SERVER_2[MAX_XTRA_SERVER_URL_LENGTH];
+    char           XTRA_SERVER_3[MAX_XTRA_SERVER_URL_LENGTH];
 } loc_gps_cfg_s_type;
 
 extern loc_gps_cfg_s_type gps_conf;
