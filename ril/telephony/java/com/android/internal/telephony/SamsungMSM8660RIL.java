@@ -60,6 +60,7 @@ import com.android.internal.telephony.uicc.IccCardStatus;
 public class SamsungMSM8660RIL extends RIL implements CommandsInterface {
 
     private AudioManager mAudioManager;
+    private Message mPendingGetSimStatus;
 
     private Object mSMSLock = new Object();
     private boolean mIsSendingSMS = false;
@@ -351,6 +352,31 @@ public class SamsungMSM8660RIL extends RIL implements CommandsInterface {
         }
 
         return response;
+    }
+
+    // Hack for Lollipop
+    // The system now queries for SIM status before radio on, resulting
+    // in getting an APPSTATE_DETECTED state. The RIL does not send an
+    // RIL_UNSOL_RESPONSE_SIM_STATUS_CHANGED message after the SIM is
+    // initialized, so delay the message until the radio is on.
+    @Override
+    public void
+    getIccCardStatus(Message result) {
+        if (mState != RadioState.RADIO_ON) {
+            mPendingGetSimStatus = result;
+        } else {
+            super.getIccCardStatus(result);
+        }
+    }
+
+    @Override
+    protected void switchToRadioState(RadioState newState) {
+        super.switchToRadioState(newState);
+
+        if (newState == RadioState.RADIO_ON && mPendingGetSimStatus != null) {
+            super.getIccCardStatus(mPendingGetSimStatus);
+            mPendingGetSimStatus = null;
+        }
     }
 
     @Override
