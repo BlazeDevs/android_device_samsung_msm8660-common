@@ -42,17 +42,10 @@ public class SamsungMSM8660RIL extends SamsungQualcommRIL {
             case 1036:
                 newResponse = RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED;
                 break;
-            case 1039:
-                newResponse = RIL_UNSOL_ON_SS;
-                break;
-            case 1040:
-                newResponse = RIL_UNSOL_STK_CC_ALPHA_NOTIFY;
-                break;
-            case 1041:
-                newResponse = RIL_UNSOL_UICC_SUBSCRIPTION_STATUS_CHANGED;
-                break;
             case 1037: // RIL_UNSOL_TETHERED_MODE_STATE_CHANGED
             case 1038: // RIL_UNSOL_DATA_NETWORK_STATE_CHANGED
+            case 1039: // RIL_UNSOL_ON_SS
+            case 1040: // RIL_UNSOL_STK_CC_ALPHA_NOTIFY
             case 1042: // RIL_UNSOL_QOS_STATE_CHANGED_IND
                 riljLog("SamsungMSM8660RIL: ignoring unsolicited response " +
                         origResponse);
