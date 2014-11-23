@@ -1,2 +1,0 @@
-type keypad_dev, dev_type;
-type timerirq_dev, dev_type;
