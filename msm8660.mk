@@ -163,10 +163,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.msm8660
 
-# QRNGD
-PRODUCT_PACKAGES += \
-    qrngd
-
 # Torch
 PRODUCT_PACKAGES += \
     Torch
