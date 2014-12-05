@@ -90,33 +90,41 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/msm8660-common
 BOARD_RIL_CLASS := ../../../device/samsung/msm8660-common/ril
 
 # SELinux
+
+include device/qcom/sepolicy/sepolicy.mk
+
 BOARD_SEPOLICY_DIRS += \
     device/samsung/msm8660-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    app.te \
     bluetooth.te \
+    bootanim.te \
     device.te \
-    domain.te \
-    drmserver.te \
-    file_contexts \
-    files \
     file.te \
-    hci_init.te \
-    healthd.te \
-    init.te \
+    file_contexts \
+    genfs_contexts \
     init_shell.te \
-    keystore.te \
-    kickstart.te \
+    kernel.te \
+    keypad_dev.te \
+    macloader.te \
     mediaserver.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    netmgrd.te \
+    orientationd.te \
+    platform_app.te \
+    qmuxd.te \
     rild.te \
+    rmt_storage.te \
     surfaceflinger.te \
-    system.te \
+    sysinit.te \
+    system_app.te \
+    system_server.te \
+    thermal-engine.te \
+    thermald.te \
     ueventd.te \
-    untrusted_app.te \
     vold.te \
-    wpa.te \
-    wpa_socket.te
+    wpa.te
 
 # Wifi related defines
 BOARD_HAVE_SAMSUNG_WIFI := true
