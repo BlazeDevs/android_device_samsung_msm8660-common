@@ -56,6 +56,9 @@ TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_NO_INITLOGO := true
 
+# Dlmalloc
+MALLOC_IMPL := dlmalloc
+
 # External apps on SD
 TARGET_EXTERNAL_APPS = sdcard1
 
