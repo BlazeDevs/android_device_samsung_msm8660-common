@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
-    audio_policy.conf \
+    audio.r_submix.default \
     audio.primary.msm8660 \
     libaudio-resampler \
     libaudioutils
