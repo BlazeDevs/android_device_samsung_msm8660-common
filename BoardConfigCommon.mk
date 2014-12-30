@@ -55,6 +55,7 @@ TARGET_NO_INITLOGO := true
 
 # GPS
 BOARD_HAVE_NEW_QC_GPS := true
+TARGET_GPS_HAL_PATH := device/samsung/msm8660-common/gps
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/msm8660-common/include
