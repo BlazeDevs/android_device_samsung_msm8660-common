@@ -75,6 +75,7 @@ TARGET_USES_CM_POWERHAL := true
 # Qualcomm support
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/msm8660-common/recovery/graphics.c
