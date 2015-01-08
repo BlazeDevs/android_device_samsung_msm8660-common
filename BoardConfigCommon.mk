@@ -84,7 +84,9 @@ TARGET_RECOVERY_FSTAB := device/samsung/msm8660-common/rootdir/etc/fstab.qcom
 BOARD_RIL_CLASS := ../../../device/samsung/msm8660-common/ril
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+-include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += \
+device/samsung/msm8660-common/sepolicy
 
 # Wifi related defines
 BOARD_HAVE_SAMSUNG_WIFI := true
