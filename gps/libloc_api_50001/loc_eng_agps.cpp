@@ -698,7 +698,7 @@ void AgpsStateMachine::sendRsrcRequest(AGpsStatusValue action) const
                        (void*)&notification, false);
 
     if ((NULL == s) == (GPS_RELEASE_AGPS_DATA_CONN == action)) {
-        AGpsStatus nifRequest;
+        AGpsExtStatus nifRequest;
         nifRequest.size = sizeof(nifRequest);
         nifRequest.type = mType;
         nifRequest.status = action;
@@ -723,7 +723,9 @@ void AgpsStateMachine::sendRsrcRequest(AGpsStatusValue action) const
 #endif
 
         CALLBACK_LOG_CALLFLOW("agps_cb", %s, loc_get_agps_status_name(action));
-        (*mServicer)(&nifRequest);
+        void * nifReq;
+        nifReq = (void *)&nifRequest;
+        (*mServicer)((AGpsStatus *)nifReq);
     }
 }
 
