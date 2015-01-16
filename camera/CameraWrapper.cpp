@@ -123,12 +123,16 @@ static char *camera_fixup_getparams(int id, const char *settings)
             params.set(android::CameraParameters::KEY_SUPPORTED_FOCUS_MODES,
                     "auto,macro,fixed,continuous-video,face-priority");
         }
+
+        // Force 1280x720 preview size
+        params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
+        params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
+                "1280x720");
     }
 
     /* Front-Facing Camera */
     if (id == 1) {
         // Force 640x480 preview size
-        params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
         params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
         params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
                 "640x480");
