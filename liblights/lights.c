@@ -37,8 +37,8 @@ static int g_enable_touchlight = -1;
 static char const LCD_FILE[]      = "/sys/class/leds/lcd-backlight/brightness";
 static char const BUTTONS_FILE[]  = "/sys/class/misc/sec_touchkey/brightness";
 static char const BUTTONS_POWER[] = "/sys/class/misc/sec_touchkey/enable_disable";
-static char const NOTIFICATION_BLINK_FILE[]    = "/sys/class/misc/bln/blink_control";
-static char const NOTIFICATION_BLINK_RATE_FILE[] = "/sys/class/misc/bln/blink_interval_ms";
+static char const NOTIFICATION_BLINK_FILE[]    = "/sys/class/misc/enhanced_bln/blink_control";
+static char const NOTIFICATION_BLINK_RATE_FILE[] = "/sys/class/misc/enhanced_bln/blink_interval_ms";
 
 void init_globals(void)
 {
