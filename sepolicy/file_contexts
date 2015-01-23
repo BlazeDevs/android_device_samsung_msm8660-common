@@ -1,0 +1,13 @@
+# GPU device
+/dev/kgsl-2d0       u:object_r:gpu_device:s0
+/dev/kgsl-2d1       u:object_r:gpu_device:s0
+/dev/msm_rotator    u:object_r:gpu_device:s0
+
+/dev/smd([0-9])+                   u:object_r:smd_device:s0
+/dev/mdm                           u:object_r:radio_device:s0
+
+# Qualcomm MSM Audio ACDB device
+/dev/msm_acdb       u:object_r:msm_acdb_device:s0
+
+/system/bin/qcks                   u:object_r:mdm_helper_exec:s0
+/system/bin/efsks                  u:object_r:mdm_helper_exec:s0
