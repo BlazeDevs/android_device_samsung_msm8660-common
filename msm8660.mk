@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
     lpm.rc \
     ueventd.qcom.rc
 
+# Audio config
+PRODUCT_COPY_FILES += \
+    device/samsung/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -89,8 +93,12 @@ PRODUCT_PACKAGES += \
     libaudioutils
 
 # Camera
-#PRODUCT_PACKAGES += \
-#    camera.msm8660
+PRODUCT_PACKAGES += \
+    camera.msm8660
+
+# Chromecast
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.enable.chromecast.mirror=true
 
 # Display
 PRODUCT_PACKAGES += \
@@ -123,6 +131,10 @@ PRODUCT_PACKAGES += \
     lights.msm8660
 
 # Media
+PRODUCT_COPY_FILES += \
+	  $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -182,7 +194,13 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+    dhcpcd.conf \
+    hostapd \
+    hostapd_default.conf \
+    libnetcmdiface \
+    libwpa_client \
+    wpa_supplicant \
+		wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
