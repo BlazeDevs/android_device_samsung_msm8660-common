@@ -19,5 +19,5 @@
 
 <resources>
     <!-- Samsung Camera Settings -->
-    <bool name="ignorePreferredPreviewSizeForVideo">true</bool>
+    <!--<bool name="ignorePreferredPreviewSizeForVideo">true</bool>-->
 </resources>
