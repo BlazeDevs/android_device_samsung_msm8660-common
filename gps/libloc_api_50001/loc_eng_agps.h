@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011,2012, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -9,7 +9,7 @@
  *       copyright notice, this list of conditions and the following
  *       disclaimer in the documentation and/or other materials provided
  *       with the distribution.
- *     * Neither the name of The Linux Foundation, nor the names of its
+ *     * Neither the name of The Linux Foundation nor the names of its
  *       contributors may be used to endorse or promote products derived
  *       from this software without specific prior written permission.
  *
@@ -47,6 +47,7 @@ class Subscriber;
 typedef struct {
     /** set to sizeof(AGpsExtStatus) */
     size_t          size;
+
     AGpsType        type;
     AGpsStatusValue status;
     int             ipv4_addr;
@@ -162,10 +163,8 @@ class AgpsStateMachine {
     char* mAPN;
     // for convenience, we don't do strlen each time.
     unsigned int mAPNLen;
-#ifdef FEATURE_IPV6
     // bear
-    ApnIpType mBearer;
-#endif
+    AGpsBearerType mBearer;
     // ipv4 address for routing
     bool mEnforceSingleSubscriber;
 
@@ -176,10 +175,8 @@ public:
     // self explanatory methods below
     void setAPN(const char* apn, unsigned int len);
     inline const char* getAPN() const { return (const char*)mAPN; }
-#ifdef FEATURE_IPV6
-    inline void setBearer(ApnIpType bearer) { mBearer = bearer; }
-    inline ApnIpType getBearer() const { return mBearer; }
-#endif
+    inline void setBearer(AGpsBearerType bearer) { mBearer = bearer; }
+    inline AGpsBearerType getBearer() const { return mBearer; }
     inline AGpsType getType() const { return (AGpsType)mType; }
 
     // someone, a ATL client or BIT, is asking for NIF
@@ -212,14 +209,14 @@ public:
 // multiple clients from modem.  In the case of BIT, there is only one
 // cilent from BIT daemon.
 struct Subscriber {
-    const uint32_t ID;
+    const int ID;
     const AgpsStateMachine* mStateMachine;
     inline Subscriber(const int id,
                       const AgpsStateMachine* stateMachine) :
         ID(id), mStateMachine(stateMachine) {}
     inline virtual ~Subscriber() {}
 
-    virtual void setIPAddresses(uint32_t &v4, char* v6) = 0;
+    virtual void setIPAddresses(int &v4, char* v6) = 0;
     inline virtual void setWifiInfo(char* ssid, char* password)
     { ssid[0] = 0; password[0] = 0; }
 
@@ -255,7 +252,7 @@ struct BITSubscriber : public Subscriber {
 
     virtual bool notifyRsrcStatus(Notification &notification);
 
-    inline virtual void setIPAddresses(uint32_t &v4, char* v6)
+    inline virtual void setIPAddresses(int &v4, char* v6)
     { v4 = ID; memcpy(v6, ipv6Addr, sizeof(ipv6Addr)); }
 
     virtual Subscriber* clone()
@@ -281,7 +278,7 @@ struct ATLSubscriber : public Subscriber {
         mBackwardCompatibleMode(compatibleMode){}
     virtual bool notifyRsrcStatus(Notification &notification);
 
-    inline virtual void setIPAddresses(uint32_t &v4, char* v6)
+    inline virtual void setIPAddresses(int &v4, char* v6)
     { v4 = INADDR_NONE; v6[0] = 0; }
 
     inline virtual Subscriber* clone()
@@ -291,7 +288,6 @@ struct ATLSubscriber : public Subscriber {
     }
 };
 
-#ifdef FEATURE_IPV6
 // WIFISubscriber, created with requests from MSAPM or QuIPC
 struct WIFISubscriber : public Subscriber {
     char * mSSID;
@@ -314,7 +310,7 @@ struct WIFISubscriber : public Subscriber {
 
     virtual bool notifyRsrcStatus(Notification &notification);
 
-    inline virtual void setIPAddresses(uint32_t &v4, char* v6) {}
+    inline virtual void setIPAddresses(int &v4, char* v6) {}
 
     inline virtual void setWifiInfo(char* ssid, char* password)
     {
@@ -338,6 +334,5 @@ struct WIFISubscriber : public Subscriber {
         return new WIFISubscriber(mStateMachine, mSSID, mPassword, senderId);
     }
 };
-#endif
 
 #endif //__LOC_ENG_AGPS_H__
