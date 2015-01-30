@@ -28,6 +28,10 @@ TARGET_CPU_VARIANT := scorpion
 # Audio
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
+QCOM_ADSP_SSR_ENABLED := false
+QCOM_ANC_HEADSET_ENABLED := false
+QCOM_FLUENCE_ENABLED := false
 BOARD_QCOM_TUNNEL_LPA_ENABLED := true
 BOARD_QCOM_VOIP_ENABLED := true
 
@@ -46,6 +50,9 @@ TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 # Charger
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+
+# CMHW
+BOARD_HARDWARE_CLASS += device/samsung/msm8660-common/cmhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/msm8660-common/configs/egl.cfg
@@ -85,7 +92,6 @@ TARGET_USES_CM_POWERHAL := true
 # Qualcomm support
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/msm8660-common/recovery/graphics.c
@@ -95,7 +101,7 @@ TARGET_RECOVERY_FSTAB := device/samsung/msm8660-common/rootdir/etc/fstab.qcom
 BOARD_RIL_CLASS := ../../../device/samsung/msm8660-common/ril
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
     device/samsung/msm8660-common/sepolicy
