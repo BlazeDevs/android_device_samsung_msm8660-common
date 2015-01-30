@@ -155,7 +155,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
-    Nfc \
+#   Nfc \
     Tag \
     com.android.nfc_extras
 
