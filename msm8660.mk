@@ -50,6 +50,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwc.dynThreshold=1.9 \
     ro.opengles.version=131072
 
+ PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.hw.aac.encoder=true \
+    ro.config.vc_call_vol_steps=7
+
 PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=false \
     persist.sys.media.use-awesome=true \
