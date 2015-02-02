@@ -86,7 +86,6 @@ PRODUCT_PACKAGES += \
 
 # Audio config
 PRODUCT_COPY_FILES += \
-    device/samsung/msm8660-common/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     device/samsung/msm8660-common/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Audio
