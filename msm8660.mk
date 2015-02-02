@@ -51,13 +51,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.hw.aac.encoder=true \
-    ro.config.vc_call_vol_steps=7
-
-PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=false \
     persist.sys.media.use-awesome=true \
     camera2.portability.force_api=1
+
+PRODUCT_COPY_FILES += \
+    device/samsung/msm8660-common/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_plmn="" \
@@ -87,14 +86,15 @@ PRODUCT_PACKAGES += \
 
 # Audio config
 PRODUCT_COPY_FILES += \
-    device/samsung/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+    device/samsung/msm8660-common/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/samsung/msm8660-common/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio_policy.conf \
-    audio.r_submix.default \
+    audio_policy.msm8660 \
     audio.primary.msm8660 \
     libaudio-resampler \
     libaudioutils
@@ -155,7 +155,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
-#   Nfc \
+    Nfc \
     Tag \
     com.android.nfc_extras
 
