@@ -84,19 +84,10 @@ TARGET_USES_QCOM_BSP := true
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Recovery
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/msm8660-common/recovery/graphics.c
 TARGET_RECOVERY_FSTAB := device/samsung/msm8660-common/rootdir/etc/fstab.qcom
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/msm8660-common/ril
-
-#TWRP
-DEVICE_RESOLUTION := 800x1280
-TW_NO_REBOOT_BOOTLOADER := true
-TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_HAS_DOWNLOAD_MODE := true
-TWHAVE_SELINUX := true
-TARGET_USERIMAGES_USE_F2FS := true
 
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
