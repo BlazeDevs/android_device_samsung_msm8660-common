@@ -87,11 +87,6 @@ PRODUCT_PACKAGES += \
     lpm.rc \
     ueventd.qcom.rc
 
-# Audio config
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8660-common/configs/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
-    device/samsung/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -101,6 +96,9 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libaudioutils \
     libaudioamp
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Camera
 PRODUCT_PACKAGES += \

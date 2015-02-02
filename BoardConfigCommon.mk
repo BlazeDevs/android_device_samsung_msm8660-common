@@ -20,7 +20,6 @@ TARGET_KERNEL_SOURCE	:= kernel/samsung/msm8660-common
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8660
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 # Architecture
 TARGET_CPU_VARIANT := scorpion
@@ -49,11 +48,10 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 
 # Display
 BOARD_EGL_CFG := device/samsung/msm8660-common/configs/egl.cfg
-BOARD_USES_LEGACY_MMAP := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
-TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_NO_INITLOGO := true
 
 # External apps on SD
@@ -138,4 +136,5 @@ WIFI_DRIVER_MODULE_AP_ARG   := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin 
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_MAX_PARTITIONS := 28
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
