@@ -85,15 +85,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
+    audio_policy.conf \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
     libaudio-resampler \
     libaudioamp \
     libaudioutils
-
-# Audio config
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Camera
 PRODUCT_PACKAGES += \
