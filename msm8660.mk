@@ -40,10 +40,13 @@ PRODUCT_COPY_FILES += \
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0
+    wifi.interface=wlan0 \
+    persist.sys.usb.config=mtp
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=/system/lib/libqc-opt.so
+    ro.vendor.extension_library=/system/lib/libqc-opt.so \
+    qcom.hw.aac.encoder=true \
+    ro.config.vc_call_vol_steps=7
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.maxlayer=3 \
