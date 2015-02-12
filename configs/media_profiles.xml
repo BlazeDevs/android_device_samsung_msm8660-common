@@ -19,7 +19,7 @@
                          AudioDecoderCap,
                          VideoEditorCap,
                          ExportVideoProfile)>
-  <!ELEMENT CamcorderProfiles (EncoderProfile+, ImageEncoding+, ImageDecoding, Camera)>
+<!ELEMENT CamcorderProfiles (EncoderProfile+, ImageEncoding+, ImageDecoding, Camera)>
   <!ELEMENT EncoderProfile (Video, Audio)>
   <!ATTLIST EncoderProfile quality (timelapse1080p|timelapse720p|timelapse480p|timelapsehigh|timelapselow|1080p|720p|480p|qcif|high|low) #REQUIRED>
   <!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
