@@ -95,10 +95,6 @@ PRODUCT_PACKAGES += \
     libaudioamp \
     libaudioutils
 
-# Audio config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8660
