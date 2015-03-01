@@ -91,25 +91,37 @@ BOARD_SEPOLICY_DIRS += \
     device/samsung/msm8660-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    app.te \
     bluetooth.te \
+    bootanim.te \
     device.te \
-    domain.te \
-    drmserver.te \
+    file.te \
     file_contexts \
-    healthd.te \
-    init.te \
+    gamma_dev.te \
+    genfs_contexts \
     init_shell.te \
+    kernel.te \
+    keypad_dev.te \
+    macloader.te \
     mediaserver.te \
+    mm-qcamerad.te \
     mpdecision.te \
+    netmgrd.te \
+    orientationd.te \
+    panel_dev.te \
+    platform_app.te \
+    power_dev.te \
+    qmuxd.te \
     rild.te \
+    rmt_storage.te \
     surfaceflinger.te \
+    sysinit.te \
     system_app.te \
+    system_server.te \
+    thermal-engine.te \
+    thermald.te \
     ueventd.te \
-    untrusted_app.te \
     vold.te \
-    wpa.te \
-    wpa_socket.te
+    wpa.te
 
 # Wifi related defines
 BOARD_HAVE_SAMSUNG_WIFI := true
