@@ -102,8 +102,8 @@ PRODUCT_PACKAGES += \
 
 # Charger
 PRODUCT_PACKAGES += \
-charger \
-charger_res_images
+    charger \
+    charger_res_images
 
 # Chromecast
 PRODUCT_PROPERTY_OVERRIDES += \
