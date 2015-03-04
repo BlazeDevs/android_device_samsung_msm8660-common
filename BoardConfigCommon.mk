@@ -46,6 +46,10 @@ TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 # Charger
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+LOCAL_CFLAGS += -DCHARGER_SHOW_PERCENTAGE
+
+# CMHW
+BOARD_HARDWARE_CLASS += device/samsung/msm8660-common/cmhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/msm8660-common/configs/egl.cfg
