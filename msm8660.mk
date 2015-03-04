@@ -100,6 +100,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8660
 
+# Charger
+PRODUCT_PACKAGES += \
+charger \
+charger_res_images
+
 # Chromecast
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.enable.chromecast.mirror=true
