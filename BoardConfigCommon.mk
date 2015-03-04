@@ -110,7 +110,9 @@ BOARD_SEPOLICY_UNION += \
     panel_dev.te \
     platform_app.te \
     power_dev.te \
+    property_contexts \
     qmuxd.te \
+    recovery.te \
     rild.te \
     rmt_storage.te \
     surfaceflinger.te \
