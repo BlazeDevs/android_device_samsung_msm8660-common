@@ -86,7 +86,8 @@ TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_USES_CM_POWERHAL := true
 
 # Qualcomm support
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+TARGET_USES_QCOM_BSP := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/msm8660-common/rootdir/etc/fstab.qcom
