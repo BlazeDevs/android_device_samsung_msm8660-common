@@ -42,7 +42,6 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_CAMERA_ABI_HACK
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
-
 # Charger
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
@@ -60,6 +59,9 @@ TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_NO_INITLOGO := true
 
+# External apps on SD
+TARGET_EXTERNAL_APPS = sdcard1
+
 # GPS
 BOARD_HAVE_NEW_QC_GPS := true
 TARGET_GPS_HAL_PATH := device/samsung/msm8660-common/gps
@@ -76,6 +78,10 @@ TARGET_EXTERNAL_APPS = sdcard1
 # Logging
 TARGET_USES_LOGD := false
 
+# Media
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_NO_ADAPTIVE_PLAYBACK := true
+
 # Power
 TARGET_USES_CM_POWERHAL := true
 
@@ -89,7 +95,7 @@ TARGET_RECOVERY_FSTAB := device/samsung/msm8660-common/rootdir/etc/fstab.qcom
 BOARD_RIL_CLASS := ../../../device/samsung/msm8660-common/ril
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
     device/samsung/msm8660-common/sepolicy
