@@ -1,5 +1,15 @@
+# GPU device
+/dev/kgsl-2d0                  u:object_r:gpu_device:s0
+/dev/kgsl-2d1                  u:object_r:gpu_device:s0
+/dev/msm_rotator               u:object_r:gpu_device:s0
+/dev/smd([0-9])+               u:object_r:smd_device:s0
+/dev/mdm                       u:object_r:radio_device:s0
+
 /system/bin/macloader		u:object_r:macloader_exec:s0
 /system/bin/orientationd	u:object_r:orientationd_exec:s0
+
+# Qualcomm MSM Audio ACDB device
+/dev/msm_acdb       u:object_r:msm_acdb_device:s0
 
 /dev/timerirq			u:object_r:timerirq_dev:s0
 /dev/kgsl-2d(.*)		u:object_r:graphics_device:s0
@@ -15,3 +25,6 @@
 /sys/devices/virtual/sec/sec_touchkey/keypad_enable	u:object_r:keypad_dev:s0
 /sys/devices/virtual/timed_output/vibrator/pwm_value	u:object_r:power_dev:s0
 /sys/devices/platform/mipi_samsung_oled.513/lcd/panel/power_reduce	u:object_r:panel_dev:s0
+
+/system/bin/qcks                   u:object_r:mdm_helper_exec:s0
+/system/bin/efsks                  u:object_r:mdm_helper_exec:s0
