@@ -1,39 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory 
-                android:title="@string/gyro_subcat_title">
-    <!-- Use sensor calibration -->
-    <CheckBoxPreference
-                android:key="use_gyro_calibration"
-                android:title="@string/use_gyro_calibration_title_head"
-                android:summary="@string/use_gyro_calibration_summary_head"
-                android:defaultValue="true"
-                />
+        android:title="@string/gyro_subcat_title">
+        <!-- Use sensor calibration -->
+        <CheckBoxPreference
+            android:key="use_gyro_calibration"
+            android:title="@string/use_gyro_calibration_title_head"
+            android:summary="@string/use_gyro_calibration_summary_head"
+            android:defaultValue="true" />
 
-    <!-- Do gyro calibration -->
-    <Preference
-                android:key="calibrate_gyro"
-                android:title="@string/calibrate_gyro_title_head"
-                android:summary="@string/calibrate_gyro_summary_head"
-                />
+        <!-- Do gyro calibration -->
+        <Preference
+            android:key="calibrate_gyro"
+            android:title="@string/calibrate_gyro_title_head"
+            android:summary="@string/calibrate_gyro_summary_head" />
     </PreferenceCategory>
 
     <PreferenceCategory
-                android:title="@string/touchkey_subcat_title">
-    <!-- Touchkey backlight -->
-    <CheckBoxPreference
-                android:key="touchkey_light"
-                android:title="@string/touchkey_light_title_head"
-                android:summary="@string/touchkey_light_summary_head"
-                android:defaultValue="true"
-                />
+        android:key="sensors_motors_category"
+        android:title="@string/sensors_motors_title" >
 
-    <CheckBoxPreference
-                android:key="touchkey_bln"
-                android:title="@string/touchkey_bln_title_head"
-                android:summary="@string/touchkey_bln_summary_head"
-                android:defaultValue="true"
-                />
+        <com.cyanogenmod.settings.device.VibratorIntensity
+            android:key="vibration_intensity"
+            android:title="@string/vibrator_intensity_title"
+            android:dialogTitle="@string/vibrator_intensity_title"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/touchkey_subcat_title">
+        <CheckBoxPreference
+            android:key="touchkey_s2w"
+            android:title="@string/touchkey_s2w_title_head"
+            android:summary="@string/touchkey_s2w_summary_head"
+            android:defaultValue="false" />
+            
+        <!-- Touchkey backlight -->
+        <CheckBoxPreference
+            android:key="touchkey_s2s"
+            android:title="@string/touchkey_s2s_title_head"
+            android:summary="@string/touchkey_s2s_summary_head"
+            android:defaultValue="false" />
+            
+        <CheckBoxPreference
+            android:key="touchkey_s2w_sensitive"
+            android:title="@string/touchkey_s2w_sensitive_title_head"
+            android:summary="@string/touchkey_s2w_sensitive_summary_head"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="touchkey_light"
+            android:title="@string/touchkey_light_title_head"
+            android:summary="@string/touchkey_light_summary_head"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="touchkey_bln"
+            android:title="@string/touchkey_bln_title_head"
+            android:summary="@string/touchkey_bln_summary_head"
+            android:defaultValue="true" />
+        
+        <com.cyanogenmod.settings.device.BlinkInterval
+            android:key="touchkey_bln_interval"
+            android:title="@string/touchkey_bln_interval_title_head"
+            android:summary="@string/touchkey_bln_interval_summary_head"
+            android:defaultValue="500 500\n"
+            android:dialogMessage="@string/touchkey_bln_interval_dialog_message"
+            android:max="5000"
+            custom:min="1" />
+        
+        <com.cyanogenmod.settings.device.BlinkTimeout
+            android:key="touchkey_bln_timeout"
+            android:title="@string/touchkey_bln_timeout_title_head"
+            android:summary="@string/touchkey_bln_timeout_summary_head"
+            android:defaultValue="600\n"
+            android:dialogMessage="@string/touchkey_bln_timeout_dialog_message"
+            android:max="1800"
+            custom:min="1" />
+                    
+        <Preference
+            android:key="touchkey_bln_off"
+            android:title="@string/touchkey_bln_off_title_head"
+            android:summary="@string/touchkey_bln_off_summary_head" />
     </PreferenceCategory>
 </PreferenceScreen>
 

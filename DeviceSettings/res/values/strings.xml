@@ -14,31 +14,101 @@
      limitations under the License.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Advanced settings</string>
+    <string name="app_name">Advanced Settings</string>
     <string name="screen_colors_title">Colors</string>
-    <string name="category_mdnie_title">Screen</string>
-    <string name="mdnie_scenario_title_head">Scenario</string>
-    <string name="mdnie_scenario_summary_head">Set the mDNIe Scenario</string>
-    <string name="mdnie_mode_title_head">Mode</string>
-    <string name="mdnie_mode_summary_head">Set the mDNIe Mode</string>
-    <string name="mdnie_negative_title_head">Negative Mode</string>
-    <string name="mdnie_negative_summary_head">Enable/Disable inverted colors</string>
-    <string name="mdnie_outdoor_title_head">Outdoor Mode</string>
-    <string name="mdnie_outdoor_summary_head">Enable/Disable outdoor mode</string>
-    <string name="panel_gamma_title_head">Screen Gamma</string>
-    <string name="panel_gamma_summary_head">Set screen gamma value</string>
+    <string name="category_screen_title">Screen</string>
+    <string name="category_kernel_title">Kernel</string>
+
+    <!-- Hardware tunables - Vibrator intensity -->
+    <string name="vibrator_intensity_title">Vibrator intensity</string>
+    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
+    
+    <!-- Hardware tunables - Panel uv -->
+    <string name="kernel_battery_title">Battery Saving Settings</string>
+    <string name="panel_undervolt_title">Panel Undervolt</string>
+    <string name="panel_undervolt_summary">Undervolt your display panel up to 500mV to help save battery</string>
+    <string name="panel_undervolt_default">Default panel uv is %1$dmV in increments of %2$dmV</string>
+
+    <!-- Hardware tunables - Color calibration -->
+    <string name="color_calibration_title">Color calibration</string>
+    <string name="color_calibration_summary">Calibrate on-screen colors</string>
+    <string name="color_red_title">Red</string>
+    <string name="color_green_title">Green</string>
+    <string name="color_blue_title">Blue</string>
+
+    <!-- Hardware tunables - Gamma calibration -->
+    <string name="gamma_tuning_title_head">Gamma calibration</string>
+    <string name="gamma_tuning_summary_head">Tweak gamma values</string>
+    <string name="gamma_tuning_control_set_header">Group <xliff:g id="index">%d</xliff:g></string> <!-- used if no name provided by overlay -->
+    <string name="gamma_tuning_contrast">Contrast</string>
+    <string name="gamma_tuning_brightness">Brightness</string>
+    <string name="gamma_tuning_saturation">Saturation</string>
+
+    <!--  Other device settings -->
+    <string name="sensors_motors_title">Sensors &amp; motors</string>
+    <string name="display_calibration_title">Display calibration</string>
+    <string name="reset_button">Reset</string>
+
     <string name="touchscreen_subcat_title">Touchscreen</string>
     <string name="touchscreen_sensitivity_title_head">Touch sensitivity</string>
     <string name="touchscreen_sensitivity_summary_head">Set touch panel sensitivity</string>
+    
+    <!-- Screencast Settings -->
+    <string name="screencast_subcat_title">Screencasting</string>
+    <string name="mirroring_title_head">Mirroring Enabled</string>
+    <string name="mirroring_summary_head">Enable display mirroring in Google Services Framework</string>
+    <string name="remote_display_title_head">Remote Display Enabled</string>
+    <string name="remote_display_summary_head">Enable remote display in Google Services Framework</string>
+
     <string name="category_sensors_title">Sensors</string>
     <string name="gyro_subcat_title">Gyroscope</string>
     <string name="use_gyro_calibration_title_head">Use calibration data</string>
     <string name="use_gyro_calibration_summary_head">Use the gyroscope calibration values. Do a calibration after checking this!</string>
     <string name="calibrate_gyro_title_head">Calibrate</string>
     <string name="calibrate_gyro_summary_head">Put your phone on a flat surface, and press this to calibrate</string>
+
+    <string name="touchkey_s2w_title_head">Enable Sweep2Wake</string>
+    <string name="touchkey_s2w_summary_head">Sweep the four capacitative keys from left to right to wake the device</string>
+    <string name="touchkey_s2s_title_head">Enable Sweep2Sleep</string>
+    <string name="touchkey_s2s_summary_head">Sweep the four capacitative keys from right to left to put the device to sleep</string>
+    <string name="touchkey_s2w_sensitive_title_head">Enable Sweep2Wake Sensitive</string>
+    <string name="touchkey_s2w_sensitive_summary_head">Touch only menu and search capacitative keys to wake or put the device to sleep</string>
+
     <string name="touchkey_subcat_title">Touch key</string>
     <string name="touchkey_light_title_head">Enable keys backlight</string>
     <string name="touchkey_light_summary_head">Light up touch keys when screen is on</string>
     <string name="touchkey_bln_title_head">Enable keys notifications</string>
     <string name="touchkey_bln_summary_head">Light up touch keys when screen is off, and a notification is received</string>
+    <string name="touchkey_bln_off_title_head">Turn off BLN</string>
+    <string name="touchkey_bln_off_summary_head">Turn off BLN if it is stuck. Will not disable BLN.</string>
+    <string name="touchkey_bln_interval_title_head">Set blink interval</string>
+    <string name="touchkey_bln_interval_summary_head">Set the duration in miliseconds that the capacitative lights will stay on/off during notification.</string>
+    <string name="touchkey_bln_interval_dialog_message">Set the blink on/off duration in miliseconds.</string>
+    <string name="touchkey_bln_interval_dialog_on_label">On (ms)</string>
+    <string name="touchkey_bln_interval_dialog_off_label">Off (ms)</string>
+    <string name="touchkey_bln_interval_dialog_reset">Reset to Default</string>
+    <string name="touchkey_bln_interval_dialog_reset_toast">Blink interval reset to default!</string>
+    <string name="touchkey_bln_interval_dialog_success_toast">Blink interval set successfully!</string>
+    <string name="touchkey_bln_timeout_title_head">Set blink timeout</string>
+    <string name="touchkey_bln_timeout_summary_head">Set the duration in seconds for timout of the BLN.\n(Lower values save more battery)</string>
+    <string name="touchkey_bln_timeout_dialog_message">Set the BLN timeout duration in seconds.</string>
+    <string name="touchkey_bln_timeout_dialog_timeout_label">Timeout (s)</string>
+    <string name="touchkey_bln_timeout_dialog_reset_toast">Blink timeout reset to default!</string>
+    <string name="touchkey_bln_timeout_dialog_success_toast">Blink timeout set successfully!</string>
+    
+    <!-- Input Boost Settings -->
+    <string name="kernel_performance_title">Performance Settings</string>
+    <string name="input_boost_enabled_title_head">Enable CPU Input Boost</string>
+    <string name="input_boost_enabled_summary_head">CPU Input Boost will boost your CPU to the defined frequency for the defined number of miliseconds anytime you touch your screen when enabled.</string>
+    <string name="input_boost_freq_title">CPU Input Boost Frequency</string>
+    <string name="input_boost_freq_summary">Set the frequency which will be used for CPU Input Boost</string>
+    <string name="input_boost_freq_default">Default CPU Input Boost frequency is %1$dMHz</string>
+    <string name="input_boost_timeout_title_head">CPU Input Boost Timeout</string>
+    <string name="input_boost_timeout_summary_head">Set the CPU Input Boost timeout.</string>
+    <string name="input_boost_timeout_dialog_message">Set the CPU Boost timeout duration in milliseconds.</string>
+    <string name="input_boost_timeout_dialog_timeout_label">Timeout (ms)</string>
+    <string name="input_boost_timeout_dialog_reset_toast">CPU Input Boost timeout reset to default!</string>
+    <string name="input_boost_timeout_dialog_success_toast">CPU Input Boost timeout set successfully!</string>
+    <string name="input_boost_timeout_dialog_reset">Reset to Default</string>
+
 </resources>

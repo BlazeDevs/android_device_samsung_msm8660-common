@@ -15,18 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Paramètres avancés</string>
-    <string name="category_mdnie_title">Écran</string>
     <string name="screen_colors_title">Couleurs</string>
-    <string name="mdnie_scenario_title_head">Scénario</string>
-    <string name="mdnie_scenario_summary_head">Définir le scénario mDNIe</string>
-    <string name="mdnie_mode_title_head">Mode</string>
-    <string name="mdnie_mode_summary_head">Définir le mode mDNIe</string>
-    <string name="mdnie_negative_title_head">Mode négatif</string>
-    <string name="mdnie_negative_summary_head">Activer/désactiver les couleurs inversées</string>
-    <string name="mdnie_outdoor_title_head">Mode extérieur</string>
-    <string name="mdnie_outdoor_summary_head">Activer/désactiver le mode extérieur</string>
-    <string name="panel_gamma_title_head">Gamma écran</string>
-    <string name="panel_gamma_summary_head">Définir la valeur de gamma de l\'écran</string>
     <string name="touchscreen_subcat_title">Tactile</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilité</string>
     <string name="touchscreen_sensitivity_summary_head">Définir la sensibilité du toucher</string>

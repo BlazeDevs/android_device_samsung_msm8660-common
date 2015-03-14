@@ -32,7 +32,7 @@ public class TouchscreenSensitivity extends ListPreference implements OnPreferen
         this.setOnPreferenceChangeListener(this);
     }
 
-    private static final String FILE = "/sys/class/misc/sec_touchkey/touchkey_threshold";
+    private static final String FILE = "/sys/class/sec/sec_touchscreen/tsp_threshold";
 
     public static boolean isSupported() {
         return Utils.fileExists(FILE);
@@ -48,7 +48,7 @@ public class TouchscreenSensitivity extends ListPreference implements OnPreferen
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_TOUCHSCREEN_SENSITIVITY, "50"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DisplaySettings.KEY_TOUCHSCREEN_SENSITIVITY, "70"));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

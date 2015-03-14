@@ -31,19 +31,51 @@ import com.cyanogenmod.settings.device.R;
 
 import java.util.ArrayList;
 
-public class DeviceSettings extends FragmentActivity {
+public class DisplaySettings extends FragmentActivity {
 
     public static final String SHARED_PREFERENCES_BASENAME = "com.cyanogenmod.settings.device";
     public static final String ACTION_UPDATE_PREFERENCES = "com.cyanogenmod.settings.device.UPDATE";
-    public static final String KEY_MDNIE_SCENARIO = "mdnie_scenario";
-    public static final String KEY_MDNIE_MODE = "mdnie_mode";
-    public static final String KEY_MDNIE_OUTDOOR = "mdnie_outdoor";
-    public static final String KEY_HSPA = "hspa";
     public static final String KEY_USE_GYRO_CALIBRATION = "use_gyro_calibration";
     public static final String KEY_CALIBRATE_GYRO = "calibrate_gyro";
+    public static final String KEY_PANEL_UV = "panel_uv";
+    public static final int    UV_DEFAULT_VALUE = 500;
+    public static final int    UV_INCREMENT_VALUE = 25;
     public static final String KEY_TOUCHSCREEN_SENSITIVITY = "touchscreen_sensitivity";
+    public static final String KEY_MIRRORING = "mirroring_enabled";
+    public static final String KEY_REMOTE_DISPLAY = "remote_display_enabled";
+    public static final String KEY_MIRRORING_UI_TASK = "mirroringUITask";
+    public static final String KEY_MIRRORING_DB_TASK = "mirroringDBTask";
+    public static final String KEY_REMOTE_UI_TASK = "remoteUITask";
+    public static final String KEY_REMOTE_DB_TASK = "remoteDBTask";
     public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
     public static final String KEY_TOUCHKEY_BLN = "touchkey_bln";
+    public static final String KEY_TOUCHKEY_BLN_OFF = "touchkey_bln_off";
+    public static final String KEY_TOUCHKEY_BLN_INTERVAL = "touchkey_bln_interval";
+    public static final String KEY_TOUCHKEY_BLN_TIMEOUT = "touchkey_bln_timeout";
+    public static final String GSF_DB_FILE = "/data/data/com.google.android.gsf/databases/gservices.db";
+    public static final String SUBMIX_FILE = "/system/lib/hw/audio.r_submix.default.so";
+    public static final String GSF_OVERRIDES_TABLE = "overrides";
+    public static final String GSF_MIRRORING_ENABLED = "gms:cast:mirroring_enabled";
+    public static final String GSF_REMOTE_DISPLAY_ENABLED = "gms:cast:remote_display_enabled";
+    public static final String GSF_PACKAGE = "com.google.android.gsf";
+    public static final String GMS_PACKAGE = "com.google.android.gms";
+    public static final String CHROMECAST_PACKAGE = "com.google.android.apps.chromecast.app";
+    public static final String KEY_DISPLAY_CALIBRATION_CATEGORY = "display_calibration_category";
+    public static final String KEY_DISPLAY_COLOR = "color_calibration";
+    public static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
+    public static final String KEY_SENSORS_MOTORS_CATEGORY = "sensors_motors_category";
+    public static final String KEY_TOUCHKEY_S2W = "touchkey_s2w";
+    public static final String KEY_TOUCHKEY_S2S = "touchkey_s2s";
+    public static final String KEY_TOUCHKEY_S2W_SENSITIVE = "touchkey_s2w_sensitive";
+    public static final String FILE_CPU_FREQS = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies";
+    public static final String FILE_INPUT_BOOST_ENABLED = "/sys/module/cpu_input_boost/input_boost_enabled";
+    public static final String FILE_INPUT_BOOST_FREQ = "/sys/module/cpu_input_boost/input_boost_freq";
+    public static final String FILE_INPUT_BOOST_MS = "/sys/module/cpu_input_boost/input_boost_ms";
+    public static final String KEY_KERNEL_PERFORMANCE_CATEGORY = "kernel_performance_category";
+    public static final String KEY_KERNEL_BATTERY_CATEGORY = "kernel_battery_category";
+    public static final String KEY_INPUT_BOOST_ENABLED = "input_boost_enabled";
+    public static final String KEY_INPUT_BOOST_FREQ = "input_boost_freq";
+    public static final String KEY_INPUT_BOOST_TIMEOUT = "input_boost_timeout";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
@@ -62,10 +94,12 @@ public class DeviceSettings extends FragmentActivity {
         bar.setTitle(R.string.app_name);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_mdnie_title),
-                mDNIeFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_screen_title),
+                ScreenFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sensors_title),
                 SensorsFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_kernel_title),
+                KernelFragmentActivity.class, null);
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
