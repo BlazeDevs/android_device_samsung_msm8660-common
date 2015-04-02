@@ -65,4 +65,6 @@
     <!-- Expose notification LED configuration in Settings (for BLN) -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
+    <add-resource name="config_gesture_input_enabled_by_build_config" type="bool" />
+
 </resources>
